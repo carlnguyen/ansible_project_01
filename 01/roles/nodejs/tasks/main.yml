@@ -1,0 +1,12 @@
+---
+- name: install latest nodejs
+  apt:
+    name: nodejs
+    state: latest
+    update_cache: yes
+
+- name: install latest npm
+  apt:
+    name: npm
+    state: latest
+    update_cache: yes

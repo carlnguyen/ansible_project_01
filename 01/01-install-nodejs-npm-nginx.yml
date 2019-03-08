@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: true
+  gather_facts: false
+  roles:
+    - { role: nodejs, tags: nodejs }
+    - { role: nginx, tags: nginx }

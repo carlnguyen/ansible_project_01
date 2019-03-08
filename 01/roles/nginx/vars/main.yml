@@ -1,0 +1,5 @@
+---
+# vars file for nginx
+nginx_config_template: roles/nginx/templates/nginx.conf.j2
+nginx_config_dir: /etc/nginx/
+nginx_config_file: /etc/nginx/conf.d/

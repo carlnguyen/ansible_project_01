@@ -1,0 +1,44 @@
+---
+- name: update_cache & install nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+  environment:
+    RUNLEVEL: 1
+
+- name: allow NGINX through FIREWALL
+  ufw:
+    rule: allow
+    name: nginx HTTP
+    state: reloaded
+
+- name: change nginx.conf files
+  template:
+    src: "{{ nginx_config_template }}"
+    dest: "{{ nginx_config_dir }}/nginx.conf"
+    backup: yes
+  when: nginx_config is not defined
+  notify:
+    - restart nginx
+
+# - name: backup conf files in /etc/nginx/
+#   command: cp -rf "/etc/nginx/nginx.conf" "/etc/nginx/nginx.conf"
+
+# - name: backup conf.d files in /etc/nginx/conf.d/, if any
+#   command: cp -rf  "/etc/nginx/conf.d/{{ item }}"  "/etc/nginx/conf.d/{{ item }}.bak"
+#   with_items:
+#     - default.conf
+#     - example_ssl.conf
+#   ignore_errors: true
+
+# - name: start NGINX
+#   service:
+#     name: nginx
+#     state: started
+
+# - name: copy nginx j2 template to current nginx config
+#   template: 
+#     src: ../templates/nginx.conf.j2
+#     dest: /etc/nginx/nginx.conf
+
