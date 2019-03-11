@@ -1,0 +1,18 @@
+---
+- name: install nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: allow firewall nginx
+  firewalld:
+    service: http
+    permanent: yes
+    state: enabled
+  notify:
+    - restart nginx
+
+  # firewalld:
+  #   service: https
+  #   permanent: yes
+  #   state:enabled

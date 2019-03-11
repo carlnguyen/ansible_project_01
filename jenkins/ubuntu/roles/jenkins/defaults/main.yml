@@ -1,0 +1,11 @@
+---
+
+jenkins_home: /home/u01/jenkins
+jenkins_java_home: /usr/bin/java
+jenkins_jar_home: /home/u01/jar_folder
+jenkins_hostname: localhost
+jenkins_http_port: 8080
+jenkins_admin_username: admin
+jenkin_admin_password: P@SSword123
+jenkins_process_user: jenkins
+jenkins_process_group: "{{ jenkins_process_user}}"
