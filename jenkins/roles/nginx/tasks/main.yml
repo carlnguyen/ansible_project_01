@@ -1,0 +1,16 @@
+---
+- name: install nginx
+  yum:
+    name: nginx
+    state: present
+
+- name: allow firewall nginx
+  firewalld:
+    service: http
+    permanent: yes
+    state: enabled
+
+  # firewalld:
+  #   service: https
+  #   permanent: yes
+  #   state:enabled

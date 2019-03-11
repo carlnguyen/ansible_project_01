@@ -1,0 +1,12 @@
+---
+- name: add jenkins repo
+  yum_repository:
+    baseurl: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+
+- name: install jenkins
+  yum:
+    name: jenkins
+    state: present
+
+  # debug:
+  #   msg: after_ran_handler
