@@ -1,1 +1,1 @@
-# Please check README.md in each folders for steps configure #
+# This ansible is used to install nodejs, npm, nginx latest version #
