@@ -1,0 +1,2 @@
+---
+gitlab_installation_script: "https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh"

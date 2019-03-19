@@ -1,0 +1,25 @@
+---
+- name: update_cache & install nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+  environment:
+    RUNLEVEL: 1
+
+- name: allow NGINX through FIREWALL
+  ufw:
+    rule: allow
+    name: nginx HTTP
+    state: reloaded
+
+- name: change nginx.conf files
+  template:
+    src: nginx.conf.j2
+    dest: "{{ nginx_config_dir }}/nginx.conf"
+    # backup: yes
+  when: nginx_config is not defined
+  notify:
+    - restart nginx
+- debug:
+    msg: "after we ran our role"

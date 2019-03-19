@@ -1,0 +1,51 @@
+---
+- name: add jenkins repo
+  yum_repository:
+    description: jenkins repo
+    name: jenkins.repo
+    baseurl: https://pkg.jenkins.io/redhat-stable
+    gpgcheck: true
+    state: present
+
+# Not working for DXC SOE linux
+# - name: add rpm key
+#   rpm_key:
+#     key: https://pkg.jenkins.io/redhat/jenkins.io.key
+#     state: present
+#     validate_certs: yes
+
+- name: update system
+  yum: 
+    name: "*" 
+    state: latest
+
+- name: install jenkins
+  yum: 
+    name: jenkins
+    state: present 
+  notify: configure jenkins
+
+# - name: add user for jenkins
+#   user:
+#     name: jenkins
+#     comment: Jenkins
+#     create_home: true
+
+# Open port for jenkins
+- include_tasks: firewalld_settings.yml
+
+
+# - name: Ensure Jenkins is started and runs on startup.
+#   service: name=jenkins state=started enabled=yes
+
+# - name: install jenkins
+#   yum:
+#     name: jenkins
+#     update_cache: yes
+    # disable_gpg_check: yes
+    # validate_certs: no
+    # state: present
+  # notify:
+  #   - started jenkins
+  # debug:
+  #   msg: after_ran_handler

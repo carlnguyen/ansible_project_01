@@ -1,22 +1,24 @@
 ---
-- name: add jenkins gpg key
-  apt-key:
-    url: https://pkg.jenkins.io/debian/jenkins.io.key
+
+- name: add jenkins key
+  apt_key:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+    # url: https://pkg.jenkins.io/debian/jenkins.io.key
+    validate_certs: no 
     state: present
-    dest: /tmp/jenkins.io.key
 
 - name: add jenkins repo
-  apt-repository:
-    repo: deb http://pkg.jenkins.io/debian-stable binary
+  apt_repository:
+    repo: deb https://pkg.jenkins.io/debian-stable binary/
     state: present
-    update_cache: yes
+    # update_cache: yes
 
 - name: install jenkins
   apt:
     name: jenkins
     state: present
   notify:
-    - jenkins stared
+    - jenkins started
 
   # debug:
   #   msg: after_ran_handler

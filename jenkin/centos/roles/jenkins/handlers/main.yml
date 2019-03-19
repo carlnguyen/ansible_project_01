@@ -1,0 +1,8 @@
+---
+- name: configure jenkins
+  template:
+    src: jenkins_config.j2
+    dest: {{jenkin_home}}
+    owner: {{jenkin_user}}
+    group: {{jenkin_group}}
+    mode: 0775

@@ -1,0 +1,10 @@
+---
+- name: download script install gitlab
+  get_url:
+    url: gitlab_installation_script
+    dest: /tmp/gitlab_installation_script.sh
+  # when: gitlab_file.stat is not defined
+
+
+- name: run install script
+  command: sh /tmp/gitlab_installation_script.sh

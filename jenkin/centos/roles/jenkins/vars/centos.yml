@@ -1,0 +1,2 @@
+---
+jenkins_init_file: /etc/sysconfig/jenkins 

@@ -1,0 +1,10 @@
+---
+# open port & allow firewall 
+- include_tasks: firewall_settings.yml
+
+- name: install nginx
+  yum: name=nginx state=present
+
+# start jenkins nginx
+- name: start nginx
+  service: name=nginx state=started enabled=yes register=

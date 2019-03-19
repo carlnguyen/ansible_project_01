@@ -1,0 +1,46 @@
+---
+- firewalld:
+    zone: public
+    service: http
+    permanent: yes
+    state: enabled
+
+- firewalld:
+    zone: public
+    service: https
+    permanent: yes
+    state: enabled
+
+- firewalld:
+    zone: public
+    service: ssh
+    permanent: yes
+    state: enabled
+
+- firewalld:
+    zone: public
+    port: 22/tcp
+    permanent: yes
+    state: enabled
+
+- firewalld:
+    zone: public
+    port: 80/tcp
+    permanent: yes
+    state: enabled
+
+- firewalld:
+    zone: public
+    port: 443/tcp
+    permanent: yes
+    state: enabled
+
+- name: reload firewalld
+  raw: firewall-cmd --reload
+
+- firewalld:
+    zone: public
+    port: 8080/tcp
+    permanent: yes
+    state: enabled
+

@@ -1,0 +1,9 @@
+---
+- firewalld:
+    zone: public
+    port: 8080/tcp
+    permanent: yes
+    state: enabled
+
+- name: reload firewalld
+  raw: firewall-cmd --reload

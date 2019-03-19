@@ -1,0 +1,23 @@
+---
+- name: install openjdk 8
+  yum:
+    name: java-1.8.0-openjdk-headless
+    state: present
+
+- name: tools
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - vim
+    - bind-utils
+    - curl
+    - lsof
+
+# update system
+- name: update system
+  yum: name="*" state=latest
+
+# - name: update yum
+#   raw: yum update -y yum
+#   raw: yum install -y epel-release

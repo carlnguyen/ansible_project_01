@@ -1,19 +1,30 @@
 ---
 - name: add jenkins repo
   yum_repository:
+    description: jenkins repo
     name: jenkins.repo
-    baseurl: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+    # baseurl: https://pkg.jenkins.io/redhat/jenkins.repo
+    baseurl: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    # gpgkey: https://pkg.jenkins.io/redhat/jenkins.io.key
+    gpgcheck: no
     state: present
 
-- name: add jenkins gpg key
-  rpm_key:
-    state: present
-    key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
-
+# - name: add rpm key
+#   rpm_key:
+#     # key: https://pkg.jenkins.io/redhat/jenkins.io.key
+#     state: present
+#     key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+ 
 - name: install jenkins
   yum:
     name: jenkins
+    # update_cache: yes
+    # disable_gpg_check: yes
     state: present
-
+  notify:
+    - started jenkins
   # debug:
   #   msg: after_ran_handler
+
+# sudo wget -O /etc/yum.repos.d/jenkins.repo  https://pkg.jenkins.io/redhat-stable/jenkins.repo
+# sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
