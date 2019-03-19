@@ -1,2 +1,0 @@
-[testserver]
-test01 ansible_host=192.168.186.129 ansible_user=carl ansible_ssh_private_key_file=/home/carl/playbook/pubkey/jenkins-ubuntu

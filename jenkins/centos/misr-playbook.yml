@@ -1,8 +1,0 @@
----
-- hosts: testserver
-  become: true
-  gather_facts: false
-  roles:
-    - { role: common, tags: common }
-    - { role: nginx, tags: nginx }
-    - { role: jenkins, tags: jenkins}

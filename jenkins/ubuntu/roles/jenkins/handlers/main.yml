@@ -1,6 +1,0 @@
----
-
-- name: started jenkins
-  service:
-    name: jenkins
-    state: start
