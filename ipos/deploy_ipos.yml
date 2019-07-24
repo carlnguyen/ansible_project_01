@@ -2,4 +2,8 @@
 - hosts: ipos
   become: true
   gather_facts: false
-  
+  roles:
+    - { role: common, tags: common }
+    - { role: elasticsearch, tags: elasticsearch }
+    - { role: apacheds, tags: apacheds }
+    - { role: httpd, tags: httpd
