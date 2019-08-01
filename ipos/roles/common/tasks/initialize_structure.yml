@@ -1,0 +1,13 @@
+---
+- name: "create ipos structure"
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0775
+    group: jenkins
+    owner: jenkins
+  loop:
+    - '/u01/cf/packages'
+    - '/u01/cf/jars'
+    - '/u01/cf/logs'
+    - '/u01/cf/configs'

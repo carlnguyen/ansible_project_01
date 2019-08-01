@@ -1,4 +1,7 @@
 ---
+- name: update yum
+  raw: yum -y update
+
 - name: install openjdk 8
   yum:
     name: java-1.8.0-openjdk-headless
@@ -18,9 +21,8 @@
 - name: update system
   yum: name="*" state=latest
 
-# open port & allow firewall 
-- include_tasks: firewall_settings.yml
+# create folder structure
+- include_tasks: initialize_structure.yml
 
-# - name: update yum
-#   raw: yum update -y yum
-#   raw: yum install -y epel-release
+# open port & allow firewall 
+# - include_tasks: firewall_settings.yml

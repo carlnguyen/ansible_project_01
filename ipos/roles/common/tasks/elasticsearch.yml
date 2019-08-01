@@ -1,0 +1,7 @@
+---
+- name: download elasticsearch 2.4.6
+  shell: curl https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.6/elasticsearch-2.4.6.tar.gz
+  args:
+    chdir: /u01/cf/ldap-elastic/
+- name: install elasticsearch
+   
