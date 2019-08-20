@@ -25,4 +25,4 @@
 - include_tasks: initialize_structure.yml
 
 # open port & allow firewall 
-# - include_tasks: firewall_settings.yml
+- include_tasks: firewall_settings.yml

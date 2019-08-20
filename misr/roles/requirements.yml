@@ -1,6 +1,0 @@
-- src: cnguyen82:a098ad53e52782ca9e1cb00355086c9dc6a0ff5c
-  scm: https://github.dxc.com/cnguyen82/ansible.git
-  version: v1
-  name: common
-  name: eldb
-  name: ipos

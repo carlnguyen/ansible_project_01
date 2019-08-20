@@ -1,5 +1,0 @@
-ansible_host: 20.203.133.151 
-ansible_user: cnguyen82 
-ansible_password: P@ssword123 
-ansible_connection: winrm 
-ansible_winrm_transport: basic

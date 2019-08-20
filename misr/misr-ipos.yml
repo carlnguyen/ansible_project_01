@@ -1,8 +1,0 @@
----
-- hosts: drserver
-  become: true
-  gather_facts: false
-  roles:
-    - { role: common, tags: common }
-    - { role: eldb, tags: eldb }
-    - { role: ipos, tags: ipos }

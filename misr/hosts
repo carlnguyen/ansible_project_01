@@ -1,4 +1,0 @@
-[drserver]
-dr-POS-WRT02 ansible_host=10.71.102.8 ansible_user=oracle ansible_ssh_password=welcome1
-# dr-POS-BRT02 ansible_host=10.71.102.12 ansible_user=oracle ansible_ssh_password=welcome1
-# dr-POS-ESG02 ansible_host=10.71.102.14 ansible_user=oracle ansible_ssh_password=welcome1
